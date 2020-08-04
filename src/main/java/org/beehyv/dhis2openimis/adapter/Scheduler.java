@@ -16,16 +16,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class Scheduler {
 	private static final Logger logger = LoggerFactory.getLogger(Scheduler.class);
 	@Autowired private Tester adapterCycle;
-        @Autowired private OrganisationUnitSync orgUnitSync;
 	
-       @Scheduled(cron = "${app.schedule.orgSyncCronExpression}")
-	public void runOrgUnitSync() {
-            logger.info("orgUnit sync started at: " + LocalDateTime.now().toString());
-            orgUnitSync.run();
-            logger.info("orgUnit sync end at: " + LocalDateTime.now().toString());
-		
-	}
-        
+	
 	@Scheduled(cron = "${app.schedule.cronExpression}")
 	public void runAdapter() {
 		ParamsUtil.REF_DATE_PARAM = "refDate=" + LocalDate.now().minusDays(1).toString();
