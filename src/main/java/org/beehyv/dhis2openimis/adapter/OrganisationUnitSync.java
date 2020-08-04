@@ -6,11 +6,8 @@
 package org.beehyv.dhis2openimis.adapter;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import org.beehyv.dhis2openimis.adapter.dhis.fetch.*;
-import org.beehyv.dhis2openimis.adapter.openimis.APICaller;
+import org.beehyv.dhis2openimis.adapter.openimis.APICallerOrgUnitSync;
 
-import org.beehyv.dhis2openimis.adapter.util.ParamsUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +21,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrganisationUnitSync {
     @Autowired
-    APICaller apiCaller;
+    APICallerOrgUnitSync apiCallerOrgUnitSync;
 
 
     /**
@@ -35,7 +32,7 @@ public class OrganisationUnitSync {
 
     public void run(){
             final Logger logger = LoggerFactory.getLogger(OrganisationUnitSync.class);
-            System.out.println( "imisLocationUrl -- orgUnit sync " + openIMISLegacyDemoURL + " date - " + LocalDate.of(1990, 1, 1).toString() );
-            apiCaller.getLegacyDdemoOpenIMISOrgAndPostToDhis2(openIMISLegacyDemoURL);
+            logger.info("imisLocationUrl " + openIMISLegacyDemoURL + " date - " + LocalDate.of(1990, 1, 1).toString()  );
+            apiCallerOrgUnitSync.getLegacyDdemoOpenIMISOrgAndPostToDhis2(openIMISLegacyDemoURL);
 	}
 }

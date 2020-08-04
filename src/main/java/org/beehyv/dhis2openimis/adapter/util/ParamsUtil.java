@@ -14,4 +14,5 @@ public class ParamsUtil {
     public static String TRACKED_ENTITY_ATTRIBUTES_PARAM="paging=false&fields=displayName,shortName,id,code,href,optionSet";
     public static String DATA_ELEMENTS_PARAM="paging=false&fields=displayName,shortName,id,code,href,optionSet";
     public static String ORG_UNITS_PARAM="paging=false&fields=id,displayName,code";
+    public static String ORG_UNITS_SYNC_PARAM="fields=id,displayName,shortName,code,level,attributeValues[attribute[id,displayName,code],value]&sortOrder=ASC&paging=false";
 }
